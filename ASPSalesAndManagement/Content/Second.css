@@ -1,0 +1,66 @@
+﻿
+/*NAVIGATION BAR*/
+.navbar-inverse {
+    background-color: blue;
+    border-color: #E7E7E7;
+}
+
+    .navbar-inverse .navbar-header > a {
+        color: white;
+    }
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: white;
+    }
+
+        .navbar-inverse .navbar-nav > li > a:hover,
+        .navbar-inverse .navbar-nav > li > a:focus {
+            color: #E7E7E7; 
+        }
+
+        .navbar-inverse .navbar-header > a:hover,
+        .navbar-inverse .navbar-nav > li > a:focus {
+            color: #E7E7E7;
+        }
+
+
+
+.container-fluid {
+    height: 75px;
+    padding-left: 80px;
+}
+.container{
+    margin-top:15px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.diagram {
+    margin-top: 60px;
+}
+
+.login {
+    margin-top: 60px;
+}
+/*Signup radio button*/
+.radio input[type="radio"] {
+    margin-left: 0px;
+}
+
+/*Landing page.*/
+.thumbnail {
+    border: none;
+}
+
+@media screen and (min-width: 992px) {
+    .col-md-3 {
+        width: 100%;
+    }
+}
+.caption .thumbnail{
+    padding:0px;
+}
+/*Display navigation bar*/
+.navbar-collapse {
+    display: none;
+}

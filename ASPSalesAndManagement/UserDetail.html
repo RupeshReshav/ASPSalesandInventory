@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!--<script src="Scripts/bootstrap.js"></script>-->
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#getUser').click(function () {
+                var id = $('#textId').val();
+                $.ajax({
+                    url: 'UserService.asmx/GetUserById',
+                    data: { userId: id },
+                    method: 'post',
+                    dataType: 'xml',
+                    success: function (data) {
+                        var xmldata = $(data);
+                        $('#txtUserID').val(xmldata.find('UserId').text());
+                        $('#txtUserName').val(xmldata.find('UserName').text());
+                        $('#txtPassword').val(xmldata.find('Password').text());
+                        $('#txtEmail').val(xmldata.find('Email').text());
+                        $('#txtPhoneNumber').val(xmldata.find('PhoneNumber').text());
+                        $('#txtAddress').val(xmldata.find('Address').text());
+                        $('#txtUserrole').val(xmldata.find('UserRole').text());
+                        $('#txtGender').val(xmldata.find('Gender').text());
+
+
+                    },
+                    error: function (err) {
+                        alert(err);
+                    }
+                });
+
+            });
+        });
+    </script>
+</head>
+<body>
+    Id: <input type="text" id="textId" style="width:100px" />
+    <input type="button" id="getUser" style="width:100px" value="Get User" />
+    <table>
+        <!--<thead>
+            <tr>
+                <th>UserId</th>
+                <th>UserName</th>
+                <th>Password</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+                <th>User Role</th>
+                <th>Gender</th>
+            </tr>
+        </thead>-->
+        
+            <tr>
+                <td>UserId</td>
+                <td><input type="text" id="txtUserID" /></td>
+            </tr>
+            <tr>
+                <td>UserName</td>
+                <td><input type="text" id="txtUserName" /></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="text" id="txtPassword" /></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" id="txtEmail" /></td>
+            </tr>
+            <tr>
+                <td>Phone Number</td>
+                <td><input type="text" id="txtPhoneNumber" /></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><input type="text" id="txtAddress" /></td>
+            </tr>
+            <tr>
+                <td>User Role</td>
+                <td><input type="text" id="txtUserrole" /></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td><input type="text" id="txtGender" /></td>
+            </tr>
+       
+    </table>
+</body>
+</html>

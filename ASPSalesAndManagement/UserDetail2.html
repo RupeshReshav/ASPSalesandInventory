@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!--<script src="Scripts/bootstrap.js"></script>-->
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#getUser').click(function () {
+                var id = $('#textId').val();
+                $.ajax({
+                    url: 'UserService.asmx/GetUserById',
+                    //contentType: 'application/json;charset=utf-8',
+                    data: /*JSON.stringify(*/{ userId: id },
+                    method: 'post',
+                    dataType: 'json',
+                    success: function (data) {
+                        var xmldata = $(data);
+                        $('#txtUserID').val(data.UserId);
+                        $('#txtUserName').val(data.UserName);
+                        $('#txtPassword').val(data.Password);
+                        $('#txtEmail').val(data.Email);
+                        $('#txtPhoneNumber').val(data.PhoneNumber);
+                        $('#txtAddress').val(data.Address);
+                        $('#txtUserrole').val(data.UserRole);
+                        $('#txtGender').val(data.Gender);
+
+
+                    },
+                    error: function (err) {
+                        alert(err);
+                    }
+                });
+
+            });
+        });
+    </script>
+</head>
+<body>
+    Id: <input type="text" id="textId" style="width:100px" />
+    <input type="button" id="getUser" style="width:100px" value="Get User" />
+    <table>
+        
+
+        <tr>
+            <td>UserId</td>
+            <td><input type="text" id="txtUserID" /></td>
+        </tr>
+        <tr>
+            <td>UserName</td>
+            <td><input type="text" id="txtUserName" /></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="text" id="txtPassword" /></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" id="txtEmail" /></td>
+        </tr>
+        <tr>
+            <td>Phone Number</td>
+            <td><input type="text" id="txtPhoneNumber" /></td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td><input type="text" id="txtAddress" /></td>
+        </tr>
+        <tr>
+            <td>User Role</td>
+            <td><input type="text" id="txtUserrole" /></td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td><input type="text" id="txtGender" /></td>
+        </tr>
+
+    </table>
+</body>
+</html>
